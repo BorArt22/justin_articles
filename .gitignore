@@ -1,0 +1,12 @@
+#task for interview
+Case Study Data Analysis.pdf
+
+#config
+api.cfg
+
+#python notebooks
+*.ipynb
+/.ipynb_checkpoints
+number of articles about Justin Trudeau.csv
+__pycache__/
+Articles about Justin Trudeau at month.png
