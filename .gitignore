@@ -1,12 +1,10 @@
-#task for interview
-Case Study Data Analysis.pdf
-
 #config
 api.cfg
 
-#python notebooks
+#other files
 *.ipynb
 /.ipynb_checkpoints
-number of articles about Justin Trudeau.csv
+*.csv
+*.pdf
 __pycache__/
-Articles about Justin Trudeau at month.png
+*.png

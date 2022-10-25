@@ -11,11 +11,15 @@ df - dataframe that should contains fields:
 '''
 
 def save_time_series(df):
+    df['Date'] = pd.to_datetime(df['Date'])
+    df['Date'] = df['Date'].apply(lambda x: x.strftime("%Y-%m-%d"))
+    df['No. of articles'] = df['No. of articles'].astype('int')
     # Save data to csv
     df.to_csv('number of articles about Justin Trudeau.csv',index=False)
     log_message('process_data',"Data saved to 'number of articles about Justin Trudeau.csv'")
 
     # Calculate a statistic of number of articles per month
+    df['Date'] = pd.to_datetime(df['Date'])
     df['Year-Month'] = df['Date'].apply(lambda x: x.strftime("%Y-%m"))
     df_year_month = df.groupby(['Year-Month']).sum('No. of articles')
 

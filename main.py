@@ -61,7 +61,7 @@ log_message('main',"Data initialized.")
 
 # create everyday scheduling
 log_message('main',"Creating everyday scheduling...")
-#schedule.every().day.at("00:00").do(load_data_for_yesterday_day)
+#schedule.every().day.at("01:00").do(load_data_for_yesterday_day)
 schedule.every(1).minutes.do(load_data_for_yesterday_day) #test
 log_message('main',"Created everyday scheduling.")
 
