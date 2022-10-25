@@ -7,8 +7,8 @@ df - dataframe that should contains fields:
     No. of articles - integer or float.
 
 output:
-    'Number of articles about Justin Trudeau.csv'
-    'Number of articles about Justin Trudeau per month.png'
+    'number_of_articles_about_justin_trudeau.csv'
+    'number_of_articles_about_justin_trudeau_per_month.png'
 '''
 
 import logging
@@ -22,8 +22,8 @@ def save_time_series(df):
     df['Date'] = df['Date'].apply(lambda x: x.strftime("%Y-%m-%d"))
     df['No. of articles'] = df['No. of articles'].astype('int')
     # Save data to csv
-    df.to_csv('number of articles about Justin Trudeau.csv',index=False)
-    log_message('process_data',"Data saved to 'Number of articles about Justin Trudeau.csv'")
+    df.to_csv('number_of_articles_about_justin_trudeau.csv',index=False)
+    log_message('process_data',"Data saved to 'number_of_articles_about_justin_trudeau.csv'")
 
     # Calculate a statistic of number of articles per month
     df['Date'] = pd.to_datetime(df['Date'])
@@ -39,5 +39,5 @@ def save_time_series(df):
                               figsize=(20,10)
                             )
     fig = plot.get_figure()
-    fig.savefig("Number of articles about Justin Trudeau per month.png",bbox_inches = 'tight')
-    log_message('process_data',"Number of articles about Justin Trudeau per month saved as graph to 'Number of articles about Justin Trudeau per month.png'")
+    fig.savefig("number_of_articles_about_Justin_Trudeau_per_month.png",bbox_inches = 'tight')
+    log_message('process_data',"Number of articles about Justin Trudeau per month saved as graph to 'number_of_articles_about_Justin_Trudeau_per_month.png'")

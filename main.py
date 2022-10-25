@@ -27,7 +27,7 @@ def load_data_for_yesterday_day():
     log_message('main',f"Run everyday loading new articles for previous day ({previous_date}).")
 
     # load previous data fron csv file
-    df_prev = pd.read_csv('number of articles about Justin Trudeau.csv')
+    df_prev = pd.read_csv('number_of_articles_about_justin_trudeau.csv')
     last_date = df_prev['Date'].max()
     last_date_p1 = (datetime.strptime(last_date, '%Y-%m-%d') + timedelta(days = 1)).strftime("%Y-%m-%d")
 
