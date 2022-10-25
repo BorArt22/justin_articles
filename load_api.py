@@ -1,3 +1,12 @@
+'''
+Load new articles about Justin Trudeau from the Guardian Media Group API 
+(documentation http://open-platform.theguardian.com/documentation/)
+
+Input:
+    from_date - string. Date with format 'yyyy-mm-dd'. New articles 
+                        are loaded from this date.
+'''
+
 import configparser
 import json
 import logging
@@ -29,7 +38,7 @@ def load_articles_about_justin_trudeau (from_date = '2018-01-01'):
     response = requests.get(url_querry)
     data_json = response.json()
 
-    log_message('load_api',f"Geting data from api...")
+    log_message('load_api',f"Getting data from API...")
     count_of_pages = data_json['response']['pages']
     log_message('load_api',f"Get next count of pages:  {count_of_pages}.")
 

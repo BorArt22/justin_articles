@@ -7,4 +7,3 @@ api.cfg
 *.csv
 *.pdf
 __pycache__/
-*.png

@@ -1,3 +1,14 @@
+'''
+Loading data from articles about Justin Trudeau from the Guardian Media Group API 
+(documentation http://open-platform.theguardian.com/documentation/)
+and then processing it. Refresh data everyday.
+    
+    - Initialize numbers of article about Justin Trudeau from 2018-01-01
+        - Create 'Number of articles about Justin Trudeau.csv' with number of articles per day.
+        - Create 'Number of articles about Justin Trudeau per month.png' with barchart graph with number of articles per month.
+    - Everyday at 00:00 loading new data for yesterday and refresh output files.
+'''
+
 import logging
 from datetime import datetime, timedelta, date
 import time
@@ -20,11 +31,11 @@ def load_data_for_yesterday_day():
     last_date = df_prev['Date'].max()
     last_date_p1 = (datetime.strptime(last_date, '%Y-%m-%d') + timedelta(days = 1)).strftime("%Y-%m-%d")
 
-    log_message('main',f"Last date in previous data is {last_date}")
+    log_message('main',f"Last date from previously loaded data is {last_date}")
 
-    # check that last date in previous data is different than yesterday date
+    # check that last date from previously loaded data is different from yesterday date
     if last_date >= previous_date:
-        log_message('main',"Now load all needed data. Everyday scheduler work correctly.")
+        log_message('main',"Now load all needed data. Everyday scheduler works correctly.")
         return
     elif previous_date > last_date_p1:
         log_message('main',f"Loading data from {last_date_p1}.")
@@ -35,7 +46,7 @@ def load_data_for_yesterday_day():
 
         frames = [df_prev, df_new]
         save_time_series(pd.concat(frames))
-        log_message('main',"New data was loading. Everyday scheduler work correctly.")
+        log_message('main',"New data was loaded. Everyday scheduler works correctly.")
 
         return 
     else:
@@ -46,7 +57,7 @@ def load_data_for_yesterday_day():
 
         frames = [df_prev, df_new]
         save_time_series(pd.concat(frames))
-        log_message('main',"New data was loading. Everyday scheduler work correctly.")
+        log_message('main',"New data was loaded. Everyday scheduler works correctly.")
 
         return 
 
