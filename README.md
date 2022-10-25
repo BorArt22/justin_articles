@@ -11,7 +11,7 @@ Created 2 files:
     2018-01-03 2
 ```
 2. `Number of articles about Justin Trudeau per month.png` barchart graph with number of articles per month.
-![Number of articles about Justin Trudeau per month](Number of articles about Justin Trudeau per month.png)
+![Number of articles about Justin Trudeau per month](number_of_articles_about_justin_trudeau_per_month.png)
 
 ## Running the app
 
